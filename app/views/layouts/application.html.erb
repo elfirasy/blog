@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	
+<% flash.each do |key, value| %>
+<div class='flash' id='<%= key %>'>
+<%= value %>
+</div>
+<% end %>
+
+<%= yield %>
+
+<div class="footer">
+@indraisto 2012 | <small><%= link_to "Blog", root_path %></small> | <small><%= link_to "Project", projects_path %></small>
+</div>
+</body>
+</html>

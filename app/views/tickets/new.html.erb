@@ -1,0 +1,22 @@
+<h1>Project</h1>
+<div class="pages">
+  <div class="content">
+		<div class="post">
+			<h1>New Ticket for <%= @project.name %> Project</h1>
+			<%= render "form" %>
+		</div>
+	</div>
+
+  <div class="sidebar">
+    <h1>Menu</h1>
+    <h3><%= link_to 'New Ticket', new_project_ticket_path(@project) %></h3>
+
+    <h1>List Project</h1>
+    <ul>
+    <% @proj.each do |p| %>
+      <li><%= link_to p.name, p %></li>
+    <% end %>
+    </ul>
+
+  </div>
+</div>

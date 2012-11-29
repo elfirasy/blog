@@ -1,0 +1,14 @@
+<h1>Login</h1>
+
+<p id="notice"><%= notice %></p>
+
+<form accept-charset="UTF-8" action="/session" method="post">
+  <label>Username</label><br/>
+  <input type="text" name="user[username]" required/><br/>
+  <label>Password</label><br/>
+  <input type="password" name="user[password]" required/><br/>
+  <input type="submit" name="submit" value="Sign in" />
+</form>
+
+
+<p>Haven't an account? Sign up <%= link_to 'Here!', new_user_path %></p>

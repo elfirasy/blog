@@ -1,0 +1,36 @@
+<h1>Project</h1>
+<div class="pages">
+  <div class="content">
+    <div class="post">
+    	<h1><%= @project.name %></h1>
+    	<p>
+				<%= link_to "Edit Project", edit_project_path(@project) %>
+				<%= link_to "Delete Project", @project, :method => :delete,
+				:confirm => "Are you sure you want to delete this project?" %>
+				<%= link_to "Back", projects_path %>
+    	</p>
+	</div>
+	<div class="post">
+		<h1>List ticket for this project</h1>
+		<ul>
+			<% @project.tickets.each do |p| %>
+			<li><%= link_to p.title, [@project, p] %></li>
+			<% end %>
+		</ul>
+	</div>
+  </div>
+
+  <div class="sidebar">
+    <h1>Menu</h1>
+    <h3><%= link_to 'New Ticket', new_project_ticket_path(@project) %><br/>
+
+    <h1>List Project</h1>
+    <ul>
+    <% @projects.each do |p| %>
+      <li><%= link_to p.name, p %></li>
+    <% end %>
+    </ul>
+
+  </div>
+  
+</div>

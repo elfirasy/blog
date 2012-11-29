@@ -1,0 +1,38 @@
+<h1>My Blog</h1>
+
+<div class="pages">
+
+  <div class="content">
+    <% @posts.each do |post| %>
+    <div class="post">
+      <h1><%= post.title %></h1>
+      <small>post by <%= post.name %> | <%= link_to 'Edit', edit_post_path(post) %> | <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></small>
+      <p><%= post.content %> <br/>
+        <small><%= link_to 'see detail', post %></small>
+      </p>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="sidebar">
+    <h1>Menu</h1>
+    <h3><%= link_to 'New Post', new_post_path %><br/>
+        <%= link_to "New Project", new_project_path %></h3>
+
+    <h1>Last Post</h1>
+    <ul>
+    <% @posts.each do |post| %>
+      <li><%= link_to post.title, post %></li>
+    <% end %>
+    </ul>
+    
+    <h1>List Project</h1>
+    <ul>
+    <% @project.each do |p| %>
+      <li><%= link_to p.name, p %></li>
+    <% end %>
+    </ul>
+
+  </div>
+  
+</div>

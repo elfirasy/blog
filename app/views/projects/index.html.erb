@@ -1,0 +1,39 @@
+<h1>Projects</h1>
+
+<div class="pages">
+  <div class="content">
+    <div class="post">
+		<h1>Projects List</h1>
+		<ul>
+		<% @project.each do |project| %>
+		<li>
+		  <%= link_to project.name, project %> <br/>
+		  <%= link_to "Edit", edit_project_path(project) %> |
+		  <%= link_to 'Delete', project, confirm: 'Are you sure?', method: :delete %>
+		</li>
+		<% end %>
+		</ul>
+	</div>
+  </div>
+
+  <div class="sidebar">
+    <h1>Menu</h1>
+    <h3><%= link_to "New Project", new_project_path %></h3>
+
+    <h1>List Project</h1>
+    <ul>
+    <% @project.each do |p| %>
+      <li><%= link_to p.name, p %></li>
+    <% end %>
+    </ul>
+    
+    <h1>List Ticket</h1>
+    <ul>
+    <% @ticket.each do |t| %>
+      <li><%= link_to t.title, [t.project, t] %></li>
+    <% end %>
+    </ul>
+
+  </div>
+  
+</div>

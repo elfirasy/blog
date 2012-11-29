@@ -1,0 +1,31 @@
+<h1>My Blog</h1>
+<p id="notice"><%= notice %></p>
+<div class="pages">
+
+  <div class="content">
+    <div class="post">
+      <h1><%= @post.title %></h1>
+      <small>post by <%= @post.name %>
+        <b>Tags:</b><%= join_tags(@post) %>
+      </small>
+      <p><%= @post.content %></p>
+    </div>
+    
+    <h2>Comments</h2>
+    <%= render @post.comments %>
+
+    <h2>Add a comment:</h2>
+    <%= render "comments/form" %>
+
+  </div>
+
+  <div class="sidebar">
+    <h1>Menu</h1>
+    <h3>
+      <%= link_to 'New Post', new_post_path %></br>
+      <%= link_to 'Edit', edit_post_path(@post) %></br>
+      <%= link_to 'Back', posts_path %>
+    </h3>
+  </div>
+  
+</div>
